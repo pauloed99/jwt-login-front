@@ -1,0 +1,39 @@
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/images/login-background.png");
+  height: 100vh;
+  background-size: 100% 100%;
+}
+
+.card {
+  width: 30%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.label-input {
+  width: 100%;
+}
+
+input {
+  border-color: black;
+}
+
+button {
+    width: 40%;
+    align-self: center;
+}
+
+#button-group {
+  margin-top: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}

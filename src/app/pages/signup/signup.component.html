@@ -1,0 +1,155 @@
+<div id="container">
+  <div class="card text-bg-light mb-3">
+    <div class="card-header">Registration Form</div>
+    <div class="card-body">
+      <form [formGroup]="registrationForm" class="row g-3">
+        <div class="col-md-12">
+          <label for="inputName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputName"
+            formControlName="name"
+            autocomplete="nope"
+          />
+          <p
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="text-danger"
+          >
+            Name is required!
+          </p>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            formControlName="email"
+            autocomplete="nope"
+          />
+          <p
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger"
+          >
+            Email is required!
+          </p>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            formControlName="password"
+            autocomplete="nope"
+          />
+          <p
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger"
+          >
+            Password is required!
+          </p>
+        </div>
+        <div class="col-md-6">
+          <label for="inputBirthDate" class="form-label">Birth Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="inputBirthDate"
+            formControlName="birthDate"
+            autocomplete="nope"
+          />
+          <p
+            *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)"
+            class="text-danger"
+          >
+            Birth Date is required!
+          </p>
+        </div>
+        <div formGroupName="address" class="row g-3">
+          <div class="col-md-6 form-group">
+            <label for="inputZip" class="form-label">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputZip"
+              formControlName="zip"
+              [mask]="'00000-000'"
+              (input)="handleZip($event)"
+              autocomplete="nope"
+            />
+            <p
+              *ngIf="zip.invalid && (zip.dirty || zip.touched)"
+              class="text-danger"
+            >
+              Zip is required!
+            </p>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="inputNeighborhood" class="form-label"
+              >Neighborhood</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputNeighborhood"
+              formControlName="neighborhood"
+              readonly
+            />
+          </div>
+          <div class="col-6">
+            <label for="inputAddress" class="form-label">Street</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              formControlName="street"
+              readonly
+            />
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="inputCity" class="form-label">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              formControlName="city"
+              readonly
+            />
+          </div>
+          <div class="col-md-2 form-group">
+            <label for="inputUf" class="form-label">UF</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputUf"
+              formControlName="uf"
+              readonly
+            />
+          </div>
+        </div>
+        <div id="button-group">
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              [routerLink]="['/login']"
+            >
+              Back
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="signUp(registrationForm)"
+            >
+              Sign up
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

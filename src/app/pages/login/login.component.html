@@ -1,0 +1,49 @@
+<div id="container">
+  <div class="card text-bg-light mb-3">
+    <div class="card-header">Login Form</div>
+    <div class="card-body">
+      <form [formGroup]="loginForm">
+        <div class="col-md-6 label-input">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+            formControlName="email"
+            autocomplete="nope"
+          />
+          <p
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger"
+          >
+            Email is required!
+          </p>
+        </div>
+        <div class="col-md-6 label-input mt-4">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+            formControlName="password"
+            autocomplete="nope"
+          />
+
+          <p
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger"
+          >
+            Password is required!
+          </p>
+        </div>
+        <div id="button-group">
+          <button type="button" class="btn btn-success" (click)="signIn()">
+            Sign in
+          </button>
+          <button type="button" class="btn btn-primary mt-2"
+          [routerLink]="['/signup']">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
